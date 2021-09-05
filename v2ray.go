@@ -31,7 +31,7 @@ func NewV2rayInstance() *V2RayInstance {
 func (instance *V2RayInstance) LoadConfig(content string, forTest bool) error {
 	instance.access.Lock()
 	defer instance.access.Unlock()
-	config, err := serial.LoadJSONConfig(strings.NewReader(content))
+	config, err := core.LoadConfig(core.FormatJSON, content)
 	if err != nil {
 		if strings.HasSuffix(err.Error(), "not found in geoip.dat") || strings.HasSuffix(err.Error(), "geoip.dat: no such file or directory") {
 			err = extractAssetName(geoipDat, true)
@@ -57,6 +57,10 @@ func (instance *V2RayInstance) LoadConfig(content string, forTest bool) error {
 		config.Inbound = nil
 		config.App = config.App[:4]
 	}
+	return instance.init(config)
+}
+
+func (instance *V2RayInstance) init(config *core.Config) error {
 	c, err := core.New(config)
 	if err != nil {
 		return err

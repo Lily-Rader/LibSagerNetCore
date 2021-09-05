@@ -617,6 +617,7 @@ github.com/sagernet/sagerconnect v0.1.7 h1:VWNx8NJ2C52b7Mbpty/JMiYERK/nvXyHaUkX5
 github.com/sagernet/sagerconnect v0.1.7/go.mod h1:BJo2SIUnKPyS7iG1xrFBhGlneYNKURT55YbsyTlu9MU=
 github.com/sagernet/v2ray-core/v4 v4.41.2-0.20210905083715-eb921ed29eee/go.mod h1:DzveTfJ/JBUqMhtZ6mCjZVA7if1ao6rnqUQ43OFgDMM=
 github.com/sagernet/v2ray-core/v4 v4.41.2-0.20210905084545-75a6cece103b/go.mod h1:DzveTfJ/JBUqMhtZ6mCjZVA7if1ao6rnqUQ43OFgDMM=
+github.com/sagernet/v2ray-core/v4 v4.41.2-0.20210905190119-b434684a403f/go.mod h1:DzveTfJ/JBUqMhtZ6mCjZVA7if1ao6rnqUQ43OFgDMM=
 github.com/sagernet/v2ray-core/v4 v4.42.2-0.20210905032340-2639850443bc h1:UuUcy9bri377PSvLkLpmU+5gAYHaKHkPL1s1jVCf/mA=
 github.com/sagernet/v2ray-core/v4 v4.42.2-0.20210905032340-2639850443bc/go.mod h1:YrWpRau9RYPHZLJXJIoVHjSXwL5DhGuIlTnA1i9FG98=
 github.com/sagernet/v2ray-core/v4 v4.42.2-0.20210905053105-b668cb053aa5/go.mod h1:YrWpRau9RYPHZLJXJIoVHjSXwL5DhGuIlTnA1i9FG98=

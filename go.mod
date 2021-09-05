@@ -19,4 +19,4 @@ require (
 
 )
 
-replace github.com/v2fly/v2ray-core/v4 v4.42.1 => github.com/sagernet/v2ray-core/v4 v4.41.2-0.20210905084545-75a6cece103b
+replace github.com/v2fly/v2ray-core/v4 v4.42.1 => github.com/sagernet/v2ray-core/v4 v4.41.2-0.20210905190119-b434684a403f
