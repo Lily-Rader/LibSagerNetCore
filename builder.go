@@ -10,6 +10,7 @@ import (
 	"github.com/v2fly/v2ray-core/v4/infra/conf/geodata"
 	syntheticDns "github.com/v2fly/v2ray-core/v4/infra/conf/synthetic/dns"
 	syntheticRouter "github.com/v2fly/v2ray-core/v4/infra/conf/synthetic/router"
+	"net"
 	"runtime"
 )
 
@@ -18,7 +19,7 @@ type V2RayBuilder struct {
 	ctx    context.Context
 }
 
-func NewV2RayLoader(content []byte) (*V2RayBuilder, error) {
+func NewV2RayBuilder(content []byte) (*V2RayBuilder, error) {
 	c := new(core.Config)
 	err := proto.Unmarshal(content, c)
 	if err != nil {
@@ -31,6 +32,10 @@ func NewV2RayLoader(content []byte) (*V2RayBuilder, error) {
 	ctx := cfgcommon.NewConfigureLoadingContext(context.Background())
 	cfgcommon.SetGeoDataLoader(ctx, loader)
 	return &V2RayBuilder{c, ctx}, nil
+}
+
+func ParseIP(s string) []byte {
+	return net.ParseIP(s)
 }
 
 func (b *V2RayBuilder) SetRouter(content string) error {
@@ -61,14 +66,8 @@ func (b *V2RayBuilder) SetDNS(content string) error {
 	return nil
 }
 
-func (b *V2RayBuilder) Build() (*V2RayInstance, error) {
-	instance := &V2RayInstance{}
-	err := instance.init(b.config)
-	if err != nil {
-		return nil, err
-	}
+func (b *V2RayBuilder) Close() error {
 	b.ctx = nil
-	b.config = nil
 	runtime.GC()
-	return instance, nil
+	return nil
 }

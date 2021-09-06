@@ -60,6 +60,10 @@ func (instance *V2RayInstance) LoadConfig(content string, forTest bool) error {
 	return instance.init(config)
 }
 
+func (instance *V2RayInstance) LoadProto(builder *V2RayBuilder) error {
+	return instance.init(builder.config)
+}
+
 func (instance *V2RayInstance) init(config *core.Config) error {
 	c, err := core.New(config)
 	if err != nil {
