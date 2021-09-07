@@ -3,7 +3,7 @@ package libcore
 import (
 	"errors"
 	"fmt"
-	core "github.com/v2fly/v2ray-core/v4"
+	"github.com/v2fly/v2ray-core/v4"
 	"github.com/v2fly/v2ray-core/v4/app/observatory"
 	"github.com/v2fly/v2ray-core/v4/features/extension"
 	"github.com/v2fly/v2ray-core/v4/features/stats"
@@ -61,6 +61,8 @@ func (instance *V2RayInstance) LoadConfig(content string, forTest bool) error {
 }
 
 func (instance *V2RayInstance) LoadProto(builder *V2RayBuilder) error {
+	instance.access.Lock()
+	defer instance.access.Unlock()
 	return instance.init(builder.config)
 }
 
